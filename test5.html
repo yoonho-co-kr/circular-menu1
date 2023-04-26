@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- <link rel="stylesheet" href="./circle-menu.css"> -->
+    <!-- <link rel="stylesheet" href="./circle-menu2.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(315deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%)
+        }
+
+        .menu {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            /* background-color: antiquewhite; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* transform: rotate(90deg); */
+        }
+
+        .first-menu,
+        .second-menu {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+        }
+
+        .second-menu {
+            width: 300px;
+            height: 300px;
+        }
+
+        .first-menu .first-list,
+        .second-menu .second-list {
+            position: absolute;
+            list-style: none;
+            left: 0;
+            transform-origin: 100px;
+            /* transition: opacity 0.5s; */
+            transform: translateX(0px) rotate(0deg);
+            opacity: 0;
+        }
+
+        .second-menu {
+            transform-origin: 100px;
+        }
+
+        .menu.active .first-list {
+            transform: translateX(-80px) rotate(calc(360deg / 8 * var(--i)));
+            opacity: 0.8;
+            transition: opacity 0.5s;
+        }
+
+        .menu.active .second-list {
+            transform-origin: 150px;
+            transform: translate(0px, 130px) rotate(calc(360deg / 8 * var(--i)));
+            opacity: 0.8;
+            transition: opacity 0.5s;
+        }
+
+        .menu .first-list a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            transform: rotate(calc(360deg / -8 * var(--i)));
+        }
+
+        .menu .second-list a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            transform: rotate(calc(360deg / -8 * var(--i)));
+        }
+
+        .toggle {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: 1.5s;
+            border-radius: 50%;
+        }
+
+        .menu.active .toggle {
+            transform: rotate(315deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <div class="menu">
+            <div class="toggle">
+                <ion-icon name="add-outline"></ion-icon>
+            </div>
+            <ul class="first-menu">
+                <li class="first-list" style="--i:0;">
+                    <a href="#">
+                        <ion-icon name="airplane-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="first-list" style="--i:1;">
+                    <a href="#">
+                        <ion-icon name="alarm-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="first-list" style="--i:2;">
+                    <a href="#">
+                        <ion-icon name="aperture-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="first-list" style="--i:3;">
+                    <a href="#">
+                        <ion-icon name="bed-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="first-list" style="--i:4;">
+                    <a href="#">
+                        <ion-icon name="beaker-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="first-list" style="--i:5;">
+                    <a href="#">
+                        <ion-icon name="bag-remove-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="first-list" style="--i:6;">
+                    <a href="#">
+                        <ion-icon name="bus-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="first-list" style="--i:7;">
+                    <a href="#">
+                        <ion-icon name="bandage-outline"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+            <ul class="second-menu">
+                <li class="second-list" style="--i:0;">
+                    <a href="#" class="second-icon">
+                        <ion-icon name="airplane-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="second-list" style="--i:1;">
+                    <a href="#" class="second-icon">
+                        <ion-icon name="alarm-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="second-list" style="--i:2;">
+                    <a href="#" class="second-icon">
+                        <ion-icon name="aperture-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="second-list" style="--i:3;">
+                    <a href="#" class="second-icon">
+                        <ion-icon name="bed-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="second-list" style="--i:4;">
+                    <a href="#" class="second-icon">
+                        <ion-icon name="beaker-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="second-list" style="--i:5;">
+                    <a href="#" class="second-icon">
+                        <ion-icon name="bag-remove-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="second-list" style="--i:6;">
+                    <a href="#" class="second-icon">
+                        <ion-icon name="bus-outline"></ion-icon>
+                    </a>
+                </li>
+                <li class="second-list" style="--i:7;">
+                    <a href="#" class="second-icon">
+                        <ion-icon name="bandage-outline"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </body>
+    <script>
+        let toggle = document.querySelector(".toggle");
+        let menu = document.querySelector(".menu");
+        let speed = 0.1;
+
+        toggle.addEventListener('click', function () {
+            menu.classList.toggle("active");
+        });
+
+        let slide = document.querySelector(".second-menu");
+        let secondList = document.querySelectorAll(".second-list");
+        let secondListIcon = document.querySelectorAll(".second-icon");
+
+        let rotate = 0;
+        let startX = 0;
+        let isDragging = false;
+
+        slide.addEventListener("mousedown", (event) => {
+            if (menu.classList.contains("active")) {
+                startX = event.clientX;
+                isDragging = true;
+            }
+        });
+
+        slide.addEventListener("touchstart", (event) => {
+            if (menu.classList.contains("active")) {
+                startX = event.touches[0].clientX;
+                isDragging = true;
+            }
+        });
+
+        slide.addEventListener("mousemove", (event) => {
+            if (!isDragging) return;
+            let currentX = event.clientX;
+            let diffX = currentX - startX;
+            rotate += diffX * speed;
+            startX = currentX;
+
+            for (let i = 0; i < secondList.length; i++) {
+                secondList[i].style.transform = (`translate(0px,130px) rotate(calc((360deg / 8 * var(--i)) + (${rotate}deg)))`);
+                secondListIcon[i].style.transform = (`rotate(calc((360deg / -8 * var(--i)) - (${rotate}deg)))`);
+            }
+        });
+
+        slide.addEventListener("touchmove", (event) => {
+            if (!isDragging) return;
+            let currentX = event.touches[0].clientX;
+            let diffX = currentX - startX;
+            rotate += diffX * speed;
+            startX = currentX;
+
+            for (let i = 0; i < secondList.length; i++) {
+                secondList[i].style.transform = (`translate(0px,130px) rotate(calc((360deg / 8 * var(--i)) + (${rotate}deg)))`);
+                secondListIcon[i].style.transform = (`rotate(calc((360deg / -8 * var(--i)) - (${rotate}deg)))`);
+            }
+        });
+
+        slide.addEventListener("mouseup", () => {
+            isDragging = false;
+        });
+
+        slide.addEventListener("touchend", () => {
+            isDragging = false;
+        });
+
+        slide.addEventListener("mouseleave", () => {
+            isDragging = false;
+        });
+
+        slide.addEventListener("touchcancel", () => {
+            isDragging = false;
+        });
+
+    </script>
+</body>
+
+</html>
